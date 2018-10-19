@@ -1,7 +1,6 @@
 package com.groupon.seleniumgridextras.utilities;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import java.util.Base64;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -23,8 +22,7 @@ public class ImageUtils {
     BufferedImage image = null;
     byte[] imageByte;
     try {
-      BASE64Decoder decoder = new BASE64Decoder();
-      imageByte = decoder.decodeBuffer(imageString);
+      imageByte = Base64.getDecoder().decode(imageString);
       ByteArrayInputStream bis = new ByteArrayInputStream(imageByte);
 
       image = ImageIO.read(bis);
@@ -50,8 +48,7 @@ public class ImageUtils {
       ImageIO.write(image, type, bos);
       byte[] imageBytes = bos.toByteArray();
 
-      BASE64Encoder encoder = new BASE64Encoder();
-      imageString = encoder.encode(imageBytes);
+      imageString = Base64.getEncoder().encodeToString(imageBytes);
 
       bos.close();
     } catch (IOException e) {

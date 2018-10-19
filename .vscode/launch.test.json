@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "SeleniumGridExtras",
+                "projectName": "SeleniumGridExtras",
+                "workingDirectory": "/Users/emmanuel.dossantos/Projects/Selenium-Grid-Extras/SeleniumGridExtras",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "SeleniumGridExtras",
+                "projectName": "SeleniumGridExtras",
+                "workingDirectory": "/Users/emmanuel.dossantos/Projects/Selenium-Grid-Extras/SeleniumGridExtras",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}

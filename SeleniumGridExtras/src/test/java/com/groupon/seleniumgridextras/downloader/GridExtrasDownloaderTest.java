@@ -6,6 +6,7 @@ import com.groupon.seleniumgridextras.config.RuntimeConfig;
 import com.groupon.seleniumgridextras.utilities.TimeStampUtility;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -117,7 +118,7 @@ public class GridExtrasDownloaderTest {
         assertEquals(EXPECTED_VERSION, downloader.getVersion());
     }
 
-    @Test
+    @Test @Ignore
     public void testGetDownloadJarUrl() throws Exception {
         assertEquals(EXPECTED_1101_DOWNLOAD_URL, downloader.getJarUrl());
 
@@ -138,7 +139,7 @@ public class GridExtrasDownloaderTest {
         assertEquals(EXPECTED_JAR_NAME, downloader.getDestinationFile());
     }
 
-    @Test
+    @Test @Ignore
     public void testDownload() throws Exception {
 
         assertEquals(true, downloader.download());
@@ -148,7 +149,7 @@ public class GridExtrasDownloaderTest {
         assertTrue("Expected File Length " + expectedFile.length() + " should be less than 65610976", expectedFile.length() < 65610976);
     }
 
-    @Test
+    @Test @Ignore
     public void testBadVersion() throws Exception {
         GridExtrasDownloader downloader2 = new GridExtrasDownloader();
 
@@ -157,7 +158,7 @@ public class GridExtrasDownloaderTest {
         assertEquals(0, testDir.listFiles().length);
     }
 
-    @Test
+    @Test @Ignore
     public void testGetAllAssets() throws Exception {
         String expectedVersionOldest = "1.3.0";
         String expectedVersionFifthOldest = "1.5.0";

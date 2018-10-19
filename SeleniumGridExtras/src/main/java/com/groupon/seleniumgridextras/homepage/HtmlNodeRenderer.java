@@ -240,11 +240,19 @@ public class HtmlNodeRenderer {
 
     public String buildSupportedCapabilities() {
         StringBuilder renderedCapabilities = new StringBuilder();
+        
         renderedCapabilities.append("\n<ul class='capabilities'>");
         for (GridNode node : RuntimeConfig.getConfig().getNodes()) {
             boolean isSelenium3 = RuntimeConfig.getConfig().getWebdriver().getVersion().startsWith("3.");
             int nodePort = isSelenium3 ? node.getPort() : node.getConfiguration().getPort();
             int maxSession = isSelenium3 ? node.getMaxSession() : node.getConfiguration().getMaxSession();
+
+            renderedCapabilities.append("\n<li class='cap_node'>");
+            renderedCapabilities.append("<a href='/stop_grid?port=" + nodePort + "' class='btn btn-primary' style='margin-right: 10px' target='_blank'>Stop Grid</a>");
+            renderedCapabilities.append("<a href='/start_grid' class='btn btn-primary' style='margin-right: 10px' target='_blank'>Start Grid</a>");
+            renderedCapabilities.append("<a href='/reboot' class='btn btn-primary' style='margin-right: 10px' target='_blank'>Reboot Server</a>");
+            renderedCapabilities.append("\n</li>");
+
             
             renderedCapabilities.append("\n\t<li class='cap_node'>");
             renderedCapabilities.append("\n\t\tNode: " + nodePort);

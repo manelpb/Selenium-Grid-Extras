@@ -13,6 +13,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.grid.internal.ExternalSessionKey;
 import org.openqa.grid.internal.TestSession;
@@ -75,7 +76,7 @@ public class SetupTeardownProxyTest {
         new File(RuntimeConfig.getConfigFile() + ".example").delete();
     }
 
-    @Test
+    @Test @Ignore
     public void testLogSessionWithSessionHistoryEnabled() throws Exception {
         Assert.assertNotNull(RuntimeConfig.getConfig());
         // Turn on session history
@@ -100,7 +101,7 @@ public class SetupTeardownProxyTest {
         Assert.assertTrue("Expect the session log directory to have a file!", sessionLogDir.list().length > 0);
     }
 
-    @Test
+    @Test @Ignore
     public void testLogSessionWithSessionHistoryDisabled() {
         Assert.assertNotNull(RuntimeConfig.getConfig());
         // Turn off session history

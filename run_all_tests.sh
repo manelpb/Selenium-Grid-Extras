@@ -8,7 +8,7 @@ rm -rf tmp
 mkdir tmp
 
 mvn package
-java -jar SeleniumGridExtras/target/SeleniumGridExtras-1.1.8-SNAPSHOT-jar-with-dependencies.jar > tmp/grid_log.txt &
+java -jar SeleniumGridExtras/target/SeleniumGridExtras-1.12.20-SNAPSHOT-jar-with-dependencies.jar > tmp/grid_log.txt &
 
 rvm gemset use grid_extras --create
 
