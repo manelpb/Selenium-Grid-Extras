@@ -79,19 +79,24 @@ public class UpgradeGridExtrasTask extends ExecuteOSTask {
         File gridExtrasHome = new File(RuntimeConfig.getSeleniungGridExtrasHomePath());
         File shellFile;
         String shellFileHeader = "";
+        String startCommand = "";
 
         if (RuntimeConfig.getOS().isWindows()) {
             shellFile = new File(gridExtrasHome, startGridExtrasShellFileName + ".bat");
-        } else {
-            shellFileHeader = "#!/bin/bash\n\n";
-            shellFile = new File(gridExtrasHome, startGridExtrasShellFileName + ".sh");
-        }
 
-        String startCommand = String.format("%s %s -jar \"%s\"",
+            startCommand = String.format("cmd.exe /c start /min %s %s -jar \"%s\" ^& exit",
                 shellFileHeader,
                 javaPath,
                 jarFile);
+        } else {
+            shellFileHeader = "#!/bin/bash\n\n";
+            shellFile = new File(gridExtrasHome, startGridExtrasShellFileName + ".sh");
 
+            startCommand = String.format("%s %s -jar \"%s\"",
+                shellFileHeader,
+                javaPath,
+                jarFile);
+        }
 
         shellFile.setExecutable(true, false);
         shellFile.setReadable(true, false);

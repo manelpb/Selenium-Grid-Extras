@@ -48,6 +48,8 @@ public class HtmlNodeRenderer {
 
         pageHtml.append(HtmlRenderer.closeDiv(CONTAINER_DIV_CLASS));
         pageHtml.append(buildPageFooter());
+        pageHtml.append(buildScreenshotAutoUpdate());
+        pageHtml.append(buildVideoAutoUpdate());
 
         return pageHtml.toString();
     }
@@ -78,6 +80,50 @@ public class HtmlNodeRenderer {
         hardwareInfoSnippet.append(HtmlRenderer.closeDiv(COL_LG_6));
 
         return hardwareInfoSnippet.toString();
+    }
+
+    protected String buildScreenshotAutoUpdate() {
+        StringBuilder snippet = new StringBuilder();
+
+        snippet.append("<script>\n");
+            snippet.append("function updateScreenShot() {\n");    
+                snippet.append("setTimeout(function () { \n");    
+                    snippet.append("$.getJSON('/screenshot?keep=0', function (data) { \n");
+                        snippet.append("    $('.img-responsive').attr('src', 'data:image/png;base64,' + data.image[0]);\n");
+                        snippet.append("    updateScreenShot();\n");
+                    snippet.append("});\n");
+                snippet.append("}, 100);  \n");
+            snippet.append("} updateScreenShot(); \n");    
+        snippet.append("</script>\n");
+
+        return snippet.toString();
+    }
+    
+    protected String buildVideoAutoUpdate() {
+        StringBuilder snippet = new StringBuilder();
+
+        snippet.append("<script>\n");
+            snippet.append("function updateVideos() {\n");    
+                snippet.append("setTimeout(function () { \n");    
+                    snippet.append("$.getJSON('/video?available_videos', function (data) { \n");
+                        snippet.append("    $('.videos').empty(); \n ");
+                        snippet.append("    var nObj = []; \n ");
+                        snippet.append("    $.each(data.available_videos, function (key, item) {  \n");
+                        snippet.append("         nObj.push(item); ");
+                        snippet.append("    }); \n");
+
+                        snippet.append("    var videos = nObj.sort(function (a, b) { return a.last_modified < b.last_modified; }); ");
+                        snippet.append("    $.each(videos, function (key, item) {  \n");
+                        snippet.append("         var video = \"<a target='new' href='\" + item.download_url + \"'>\"+ item.session +\" (\" + new Date(item.last_modified).toLocaleString() + \")</a>\"; ");
+                        snippet.append("         $('.videos').append('<li>' + video + '</li>'); \n");
+                        snippet.append("    }); \n");
+                        snippet.append("    updateVideos();\n");
+                    snippet.append("});\n");
+                snippet.append("}, 100);  \n");
+            snippet.append("} updateVideos(); \n");    
+        snippet.append("</script>\n");
+
+        return snippet.toString();
     }
 
     protected String buildJvmMemoryInfo(Map input) {

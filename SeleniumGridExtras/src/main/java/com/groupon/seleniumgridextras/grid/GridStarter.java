@@ -181,7 +181,6 @@ public class GridStarter {
     } else {
       return command;
     }
-
   }
 
   protected static List<String> getWebNodeStartCommand(String configFile, Boolean windows, Config config) {
