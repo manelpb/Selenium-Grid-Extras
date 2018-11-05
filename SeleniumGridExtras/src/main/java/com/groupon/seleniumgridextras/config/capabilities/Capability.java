@@ -116,6 +116,7 @@ public abstract class Capability extends HashMap {
         Map<Class, String> capabilityHash = new LinkedHashMap<Class, String>();
 
         capabilityHash.put(Android.class, BrowserType.ANDROID);
+        capabilityHash.put(Opera.class, BrowserType.OPERA);
         capabilityHash.put(Chrome.class, BrowserType.CHROME);
         capabilityHash.put(Chromium.class, BrowserType.CHROMIUM);
         capabilityHash.put(Browser.class, BrowserType.BROWSER);

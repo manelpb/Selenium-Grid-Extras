@@ -13,6 +13,7 @@ public class CapabilityTest {
   public void getCapabilitiesFromList() throws Exception {
     Capability firefox = Capability.getCapabilityFor("firefox");
     Capability ie = Capability.getCapabilityFor("internet explorer");
+    Capability opera = Capability.getCapabilityFor("opera");
     Capability chrome = Capability.getCapabilityFor("chrome");
     Capability safari = Capability.getCapabilityFor("safari");
     Capability android = Capability.getCapabilityFor("android");
@@ -24,6 +25,7 @@ public class CapabilityTest {
 
     assertTrue(firefox instanceof Firefox);
     assertTrue(ie instanceof InternetExplorer);
+    assertTrue(opera instanceof Opera);
     assertTrue(chrome instanceof Chrome);
     assertTrue(safari instanceof Safari);
     assertTrue(android instanceof Android);
