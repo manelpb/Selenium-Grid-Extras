@@ -1,0 +1,14 @@
+package com.groupon.seleniumgridextras.config.capabilities;
+
+public class Opera extends Capability {
+
+  @Override
+  public String getWebDriverClass() {
+    return "org.openqa.selenium.opera.OperaDriver";
+  }
+
+  @Override
+  public String getIcon() {
+    return "iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAACHElEQVQ4T5VTO2gUURQ9905YEVRIpcbMGJUgQmxEWDGIttnMWITMzsqCioWdloKVwUIEK20sREQF9zN+IDuxsLBYwQ9EBCFRgqzZ2RBBgoUQE+PuuzKzmdkxW/mqd88753B/j5A43217yyqvnAdkDIoOgrENCj+hyUcRPNmU+nNnx8MXy5GEooufGz2mhAoM7AoxhVdgqULRMBgnAkiUamhgp9/13gRxKF5wrCNNtF4yePO62SOj5OUj44ZjlQVitz3VLyYcN4rPp2nGtlNbeeUTgL3tR0hK0UCfW/HjrJyRfYD2JYqVwtxS77ch8nPWWYjci+tQ+KC73qFkL4J73TE/E7A/5hHy1MhanpCMJsgPjJJ3ZqM4mXq7J/SU/Ky5CMLORAev6yXvcpc4a94UwsUEr07zTqbJYK0D0hW9VLm6UeznzGsQdEwVVsl3Mr8BTv2vWCks01fHnNOAwUgswI3dJe9Sd8OsWwS5EONKZsjPmXchOJcg/zPjeNZZ0xXCeIJ3m4LNglA16Wi4U0NdNdvmLBgHEiNNhxtWd8wpAjKdBx7U3cl4KeZtaw+z1GJDwTOj7I2F4tqpk9t7mq23YBqIZqi7lXECRABqOJkCwM66uNbDlO4rVJbij7GQH+lvrmmPmZEOd0DhHTGqrDAsjKMBRgqvRWPbKE4uhnGyNpmY4Mbse0cBpyGtw2D0AvyDFaah4b5e9MpBNpHmLyt52A0VVOk7AAAAAElFTkSuQmCC";
+  }
+}
